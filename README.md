@@ -183,7 +183,7 @@
     [root@pike ~(keystone_admin)]# 
 
 
-    #### To create private network 
+#### To create private network 
 
     [root@pike ~(keystone_admin)]# openstack network create private
     +---------------------------+--------------------------------------+
@@ -220,7 +220,7 @@
     [root@pike ~(keystone_admin)]# 
 
 
-    #### To list all network 
+#### To list all network 
 
     [root@pike ~(keystone_admin)]# openstack network list
     +--------------------------------------+---------+---------+
@@ -230,7 +230,7 @@
     +--------------------------------------+---------+---------+
     [root@pike ~(keystone_admin)]# 
 
-    #### To create private subnet 
+#### To create private subnet 
 
     [root@pike ~(keystone_admin)]# neutron subnet-create --name subpriv private 10.10.10.0/24
     +-------------------+------------------------------------------------+
@@ -260,7 +260,7 @@
     +-------------------+------------------------------------------------+
 
 
-    #### To list subnet
+#### To list subnet
 
     [root@pike ~(keystone_admin)]# neutron subnet-list
     +--------------------------------------+---------+----------------------------------+---------------+------------------------------------------------+
