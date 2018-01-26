@@ -182,4 +182,91 @@
     +------------+--------------+---------------------------------------------------------------------------------+
     [root@pike ~(keystone_admin)]# 
 
+
+    #### To create private network 
+
+    [root@pike ~(keystone_admin)]# openstack network create private
+    +---------------------------+--------------------------------------+
+    | Field                     | Value                                |
+    +---------------------------+--------------------------------------+
+    | admin_state_up            | UP                                   |
+    | availability_zone_hints   |                                      |
+    | availability_zones        |                                      |
+    | created_at                | 2018-01-26T14:43:07Z                 |
+    | description               |                                      |
+    | dns_domain                | None                                 |
+    | id                        | 3fbbc901-3a5f-46ee-91ba-6326a426a79f |
+    | ipv4_address_scope        | None                                 |
+    | ipv6_address_scope        | None                                 |
+    | is_default                | False                                |
+    | is_vlan_transparent       | None                                 |
+    | mtu                       | 1450                                 |
+    | name                      | private                              |
+    | port_security_enabled     | True                                 |
+    | project_id                | 4b4325a4389b4130acd2539eab299567     |
+    | provider:network_type     | vxlan                                |
+    | provider:physical_network | None                                 |
+    | provider:segmentation_id  | 59                                   |
+    | qos_policy_id             | None                                 |
+    | revision_number           | 2                                    |
+    | router:external           | Internal                             |
+    | segments                  | None                                 |
+    | shared                    | False                                |
+    | status                    | ACTIVE                               |
+    | subnets                   |                                      |
+    | tags                      |                                      |
+    | updated_at                | 2018-01-26T14:43:07Z                 |
+    +---------------------------+--------------------------------------+
+    [root@pike ~(keystone_admin)]# 
+
+
+    #### To list all network 
+
+    [root@pike ~(keystone_admin)]# openstack network list
+    +--------------------------------------+---------+---------+
+    | ID                                   | Name    | Subnets |
+    +--------------------------------------+---------+---------+
+    | 3fbbc901-3a5f-46ee-91ba-6326a426a79f | private |         |
+    +--------------------------------------+---------+---------+
+    [root@pike ~(keystone_admin)]# 
+
+    #### To create private subnet 
+
+    [root@pike ~(keystone_admin)]# neutron subnet-create --name subpriv private 10.10.10.0/24
+    +-------------------+------------------------------------------------+
+    | Field             | Value                                          |
+    +-------------------+------------------------------------------------+
+    | allocation_pools  | {"start": "10.10.10.2", "end": "10.10.10.254"} |
+    | cidr              | 10.10.10.0/24                                  |
+    | created_at        | 2018-01-26T14:44:35Z                           |
+    | description       |                                                |
+    | dns_nameservers   |                                                |
+    | enable_dhcp       | True                                           |
+    | gateway_ip        | 10.10.10.1                                     |
+    | host_routes       |                                                |
+    | id                | 81a69f6c-34c4-4f14-8d43-4b9cd6977548           |
+    | ip_version        | 4                                              |
+    | ipv6_address_mode |                                                |
+    | ipv6_ra_mode      |                                                |
+    | name              | subpriv                                        |
+    | network_id        | 3fbbc901-3a5f-46ee-91ba-6326a426a79f           |
+    | project_id        | 4b4325a4389b4130acd2539eab299567               |
+    | revision_number   | 0                                              |
+    | service_types     |                                                |
+    | subnetpool_id     |                                                |
+    | tags              |                                                |
+    | tenant_id         | 4b4325a4389b4130acd2539eab299567               |
+    | updated_at        | 2018-01-26T14:44:35Z                           |
+    +-------------------+------------------------------------------------+
+
+
+    #### To list subnet
+
+    [root@pike ~(keystone_admin)]# neutron subnet-list
+    +--------------------------------------+---------+----------------------------------+---------------+------------------------------------------------+
+    | id                                   | name    | tenant_id                        | cidr          | allocation_pools                               |
+    +--------------------------------------+---------+----------------------------------+---------------+------------------------------------------------+
+    | 81a69f6c-34c4-4f14-8d43-4b9cd6977548 | subpriv | 4b4325a4389b4130acd2539eab299567 | 10.10.10.0/24 | {"start": "10.10.10.2", "end": "10.10.10.254"} |
+    +--------------------------------------+---------+----------------------------------+---------------+------------------------------------------------+
+    [root@pike ~(keystone_admin)]# 
  
