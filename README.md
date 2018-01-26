@@ -269,4 +269,72 @@
     | 81a69f6c-34c4-4f14-8d43-4b9cd6977548 | subpriv | 4b4325a4389b4130acd2539eab299567 | 10.10.10.0/24 | {"start": "10.10.10.2", "end": "10.10.10.254"} |
     +--------------------------------------+---------+----------------------------------+---------------+------------------------------------------------+
     [root@pike ~(keystone_admin)]# 
+
+#### To cretae router
+
+    [root@pike ~(keystone_admin)]# neutron router-create router1
+    +-------------------------+--------------------------------------+
+    | Field                   | Value                                |
+    +-------------------------+--------------------------------------+
+    | admin_state_up          | True                                 |
+    | availability_zone_hints |                                      |
+    | availability_zones      |                                      |
+    | created_at              | 2018-01-26T14:48:48Z                 |
+    | description             |                                      |
+    | distributed             | False                                |
+    | external_gateway_info   |                                      |
+    | flavor_id               |                                      |
+    | ha                      | False                                |
+    | id                      | de6d0c7d-8421-4844-b5e0-289c8a1c848f |
+    | name                    | router1                              |
+    | project_id              | 4b4325a4389b4130acd2539eab299567     |
+    | revision_number         | 1                                    |
+    | routes                  |                                      |
+    | status                  | ACTIVE                               |
+    | tags                    |                                      |
+    | tenant_id               | 4b4325a4389b4130acd2539eab299567     |
+    | updated_at              | 2018-01-26T14:48:48Z                 |
+    +-------------------------+--------------------------------------+
+
+#### To attach private subnet to router
+
+    [root@pike ~(keystone_admin)]# neutron router-interface-add router1 subpriv
+    Added interface 9814c909-8c85-44f1-8819-2c9719a50730 to router router1.
+    [root@pike ~(keystone_admin)]# 
+
+#### To create public network 
+
+    [root@pike ~(keystone_admin)]# openstack network create public
+    +---------------------------+--------------------------------------+
+    | Field                     | Value                                |
+    +---------------------------+--------------------------------------+
+    | admin_state_up            | UP                                   |
+    | availability_zone_hints   |                                      |
+    | availability_zones        |                                      |
+    | created_at                | 2018-01-26T14:49:40Z                 |
+    | description               |                                      |
+    | dns_domain                | None                                 |
+    | id                        | a8be8e5c-a0ee-4892-835e-8e0fb6ce6e63 |
+    | ipv4_address_scope        | None                                 |
+    | ipv6_address_scope        | None                                 |
+    | is_default                | False                                |
+    | is_vlan_transparent       | None                                 |
+    | mtu                       | 1450                                 |
+    | name                      | public                               |
+    | port_security_enabled     | True                                 |
+    | project_id                | 4b4325a4389b4130acd2539eab299567     |
+    | provider:network_type     | vxlan                                |
+    | provider:physical_network | None                                 |
+    | provider:segmentation_id  | 92                                   |
+    | qos_policy_id             | None                                 |
+    | revision_number           | 2                                    |
+    | router:external           | Internal                             |
+    | segments                  | None                                 |
+    | shared                    | False                                |
+    | status                    | ACTIVE                               |
+    | subnets                   |                                      |
+    | tags                      |                                      |
+    | updated_at                | 2018-01-26T14:49:40Z                 |
+    +---------------------------+--------------------------------------+
+    [root@pike ~(keystone_admin)]# 
  
