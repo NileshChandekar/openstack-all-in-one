@@ -30,13 +30,14 @@
 
 
 
-# openstack-commands
-
+### openstack-commands
+ 
+ # source the rc file
 
     [root@pike ~]# source keystonerc_admin 
     [root@pike ~(keystone_admin)]# 
 
-
+ # To list openstack user
     [root@pike ~(keystone_admin)]# openstack user list 
     +----------------------------------+------------+
     | ID                               | Name       |
@@ -54,4 +55,4 @@
     +----------------------------------+------------+
     [root@pike ~(keystone_admin)]# 
 
-
+# 
