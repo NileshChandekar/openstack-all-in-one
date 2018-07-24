@@ -1,0 +1,46 @@
+(overcloud) [stack@undercloud-0 ~]$ cinder service-list
++------------------+------------------------+------+---------+-------+----------------------------+-----------------+
+| Binary           | Host                   | Zone | Status  | State | Updated_at                 | Disabled Reason |
++------------------+------------------------+------+---------+-------+----------------------------+-----------------+
+| cinder-scheduler | controller-0           | nova | enabled | up    | 2018-07-24T13:57:07.000000 | -               |
+| cinder-scheduler | controller-1           | nova | enabled | up    | 2018-07-24T13:57:04.000000 | -               |
+| cinder-scheduler | controller-2           | nova | enabled | up    | 2018-07-24T13:57:13.000000 | -               |
+| cinder-volume    | hostgroup@tripleo_ceph | nova | enabled | up    | 2018-07-24T13:57:09.000000 | -               |
++------------------+------------------------+------+---------+-------+----------------------------+-----------------+
+(overcloud) [stack@undercloud-0 ~]$ 
+(overcloud) [stack@undercloud-0 ~]$ 
+(overcloud) [stack@undercloud-0 ~]$ cinder service-disable hostgroup@tripleo_ceph cinder-volume
++------------------------+---------------+----------+
+| Host                   | Binary        | Status   |
++------------------------+---------------+----------+
+| hostgroup@tripleo_ceph | cinder-volume | disabled |
++------------------------+---------------+----------+
+(overcloud) [stack@undercloud-0 ~]$ 
+(overcloud) [stack@undercloud-0 ~]$ cinder service-list
++------------------+------------------------+------+----------+-------+----------------------------+-----------------+
+| Binary           | Host                   | Zone | Status   | State | Updated_at                 | Disabled Reason |
++------------------+------------------------+------+----------+-------+----------------------------+-----------------+
+| cinder-scheduler | controller-0           | nova | enabled  | up    | 2018-07-24T13:57:27.000000 | -               |
+| cinder-scheduler | controller-1           | nova | enabled  | up    | 2018-07-24T13:57:24.000000 | -               |
+| cinder-scheduler | controller-2           | nova | enabled  | up    | 2018-07-24T13:57:23.000000 | -               |
+| cinder-volume    | hostgroup@tripleo_ceph | nova | disabled | up    | 2018-07-24T13:57:29.000000 | -               |
++------------------+------------------------+------+----------+-------+----------------------------+-----------------+
+(overcloud) [stack@undercloud-0 ~]$ 
+(overcloud) [stack@undercloud-0 ~]$ cinder service-enable hostgroup@tripleo_ceph cinder-volume
++------------------------+---------------+---------+
+| Host                   | Binary        | Status  |
++------------------------+---------------+---------+
+| hostgroup@tripleo_ceph | cinder-volume | enabled |
++------------------------+---------------+---------+
+(overcloud) [stack@undercloud-0 ~]$ 
+(overcloud) [stack@undercloud-0 ~]$ cinder service-list
++------------------+------------------------+------+---------+-------+----------------------------+-----------------+
+| Binary           | Host                   | Zone | Status  | State | Updated_at                 | Disabled Reason |
++------------------+------------------------+------+---------+-------+----------------------------+-----------------+
+| cinder-scheduler | controller-0           | nova | enabled | up    | 2018-07-24T13:57:37.000000 | -               |
+| cinder-scheduler | controller-1           | nova | enabled | up    | 2018-07-24T13:57:34.000000 | -               |
+| cinder-scheduler | controller-2           | nova | enabled | up    | 2018-07-24T13:57:33.000000 | -               |
+| cinder-volume    | hostgroup@tripleo_ceph | nova | enabled | up    | 2018-07-24T13:57:39.000000 | -               |
++------------------+------------------------+------+---------+-------+----------------------------+-----------------+
+(overcloud) [stack@undercloud-0 ~]$ 
+
