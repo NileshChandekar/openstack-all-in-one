@@ -1,3 +1,41 @@
+[root@packstack10 ~(keystone_admin)]# openstack volume list 
+
+[root@packstack10 ~(keystone_admin)]# openstack volume create --size 3 disk01 
++---------------------+--------------------------------------+
+| Field               | Value                                |
++---------------------+--------------------------------------+
+| attachments         | []                                   |
+| availability_zone   | nova                                 |
+| bootable            | false                                |
+| consistencygroup_id | None                                 |
+| created_at          | 2018-07-26T11:36:50.827174           |
+| description         | None                                 |
+| encrypted           | False                                |
+| id                  | ad3cb1e6-1efd-4b47-985e-3a14da289648 |
+| migration_status    | None                                 |
+| multiattach         | False                                |
+| name                | disk01                               |
+| properties          |                                      |
+| replication_status  | disabled                             |
+| size                | 3                                    |
+| snapshot_id         | None                                 |
+| source_volid        | None                                 |
+| status              | creating                             |
+| type                | iscsi                                |
+| updated_at          | None                                 |
+| user_id             | f72146638e9c4b0f9d9ed99e7b45f845     |
++---------------------+--------------------------------------+
+[root@packstack10 ~(keystone_admin)]# 
+[root@packstack10 ~(keystone_admin)]# openstack volume list 
++--------------------------------------+--------------+-----------+------+-------------+
+| ID                                   | Display Name | Status    | Size | Attached to |
++--------------------------------------+--------------+-----------+------+-------------+
+| ad3cb1e6-1efd-4b47-985e-3a14da289648 | disk01       | available |    3 |             |
++--------------------------------------+--------------+-----------+------+-------------+
+[root@packstack10 ~(keystone_admin)]# 
+
+
+
 (overcloud) [stack@undercloud-0 ~]$ cinder service-list
 +------------------+------------------------+------+---------+-------+----------------------------+-----------------+
 | Binary           | Host                   | Zone | Status  | State | Updated_at                 | Disabled Reason |
