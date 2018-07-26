@@ -62,6 +62,32 @@
 [root@packstack10 ~(keystone_admin)]# 
 
 
+[root@packstack10 ~(keystone_admin)]# openstack snapshot create --force 7faa5880-ad82-49ae-b21e-ec8ab2e30de0 --name snapshot_3
++-------------+--------------------------------------+
+| Field       | Value                                |
++-------------+--------------------------------------+
+| created_at  | 2018-07-26T11:53:18.073902           |
+| description | None                                 |
+| id          | 20cab2ad-48f0-40c8-a61f-7b250693ecda |
+| name        | snapshot_3                           |
+| properties  |                                      |
+| size        | 3                                    |
+| status      | creating                             |
+| updated_at  | None                                 |
+| volume_id   | 7faa5880-ad82-49ae-b21e-ec8ab2e30de0 |
++-------------+--------------------------------------+
+[root@packstack10 ~(keystone_admin)]# 
+
+
+[root@packstack10 ~(keystone_admin)]# openstack snapshot list 
++--------------------------------------+------------+-------------+-----------+------+
+| ID                                   | Name       | Description | Status    | Size |
++--------------------------------------+------------+-------------+-----------+------+
+| 20cab2ad-48f0-40c8-a61f-7b250693ecda | snapshot_3 | None        | available |    3 |
+| d8983081-b090-420b-9c17-0dbb3621a4eb | snapshot_1 | None        | available |    3 |
++--------------------------------------+------------+-------------+-----------+------+
+[root@packstack10 ~(keystone_admin)]# 
+
 
 (overcloud) [stack@undercloud-0 ~]$ cinder service-list
 +------------------+------------------------+------+---------+-------+----------------------------+-----------------+
