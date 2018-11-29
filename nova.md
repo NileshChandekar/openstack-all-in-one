@@ -184,7 +184,7 @@ To verify snapshot creation, check images list
 ```
 
 
-### Enable - Disable Hypervisor 
+### Enable - Disable Hypervisor  // Auto-disabled due to 10 build failures
 
 ~~~
 [stack@undercloud-0 ~]$ nova hypervisor-list
